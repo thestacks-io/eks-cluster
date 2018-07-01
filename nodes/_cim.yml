@@ -1,0 +1,29 @@
+version: 0.1
+stack:
+  name: eks-nodes # Note: Update this with your stack name
+  template:
+    file: nodes.stack.yml
+    bucket: cim-stack-artifacts # Note: Update this with your bucket name.  Stacks are uploaded here prior to deployment.'
+
+  #
+  # Define stack input parameters.
+  #
+  parameters:
+    KeyName: 'bluefineng'
+    VPCStack: 'eks-vpc'
+    ClusterStack: 'eks-cluster'
+    ClusterName: 'Cluster-4zF0D7HOHQoE'
+    NodeInstanceType: 't2.small'
+    NodeAutoScalingGroupMaxSize: '1'
+
+  #
+  # Define stack capabilities required.
+  #
+  capabilities:
+    - 'CAPABILITY_IAM'
+
+  #
+  # Define global tags.
+  #
+  tags:
+    app: 'eks-cluster'

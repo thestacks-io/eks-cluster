@@ -1,0 +1,24 @@
+version: 0.1
+stack:
+  name: eks-cluster # Note: Update this with your stack name
+  template:
+    file: cluster.stack.yml
+    bucket: cim-stack-artifacts # Note: Update this with your bucket name.  Stacks are uploaded here prior to deployment.'
+
+  #
+  # Define stack input parameters.
+  #
+  parameters:
+    VPCStack: 'eks-vpc'
+
+  #
+  # Define stack capabilities required.
+  #
+  capabilities:
+    - 'CAPABILITY_IAM'
+
+  #
+  # Define global tags.
+  #
+  tags:
+    app: 'eks-cluster'
