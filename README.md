@@ -54,12 +54,12 @@ cim stack-up
 
 Record the `NodeInstanceRole` outputs because it is needed later.
 
-## Client Setup
+# Client Setup
 Once all of your stacks are up it's time to configure your local environment to connect to your new Kubernetes cluster.  We also have to configure your worker nodes and associate them with your cluster.
 
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html#eks-configure-kubectl
 
-### Configure kubectl for Amazon EKS
+## Configure kubectl for Amazon EKS
 We need to configure `kubectl` so it knows how to authenticate and connect to your new AWS EKS Kubernetes cluster.
 
 `kubectl` uses config files called `kubeconfig` to store your cluster information.
@@ -138,7 +138,7 @@ Awesome.  Now your `kubectl` is configured!
 
 Next we need to enable the worker nodes to join your cluster.
 
-### Enable worker nodes to join your cluster
+## Enable worker nodes to join your cluster
 Download, edit, and apply the AWS authenticator configuration map:
 
 1.) Download the configuration map.
@@ -180,3 +180,15 @@ kubectl get nodes --watch
 Congratulations - Your new AWS EKS Kubernetes cluster is ready.
 
 Check out our [EKS Microservice](https://github.com/thestacks-io/eks-microservice) example to see how we use [CodePipeline](https://aws.amazon.com/codepipeline/), [CodeBuild](https://aws.amazon.com/codebuild/), and [ECR](https://aws.amazon.com/ecr/) to build, test, publish, and deploy a simple microservice web app to our new Kubernetes cluster.
+
+# Tear down
+```
+cd nodes
+cim stack-delete
+
+cd cluster
+cim stack-delete
+
+cd vpc
+cim stack-delete
+```
