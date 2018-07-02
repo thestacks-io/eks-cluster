@@ -1,6 +1,8 @@
 # AWS EKS Kubernetes cluster using AWS CloudFormation
 Quikly spin up an AWS EKS Kubernetes cluster using AWS CloudFormation.
 
+[![](architecture.png)](architecture.png)
+
 Infrastructure as Code (IaC) is the recommended way to manage the cloud infrastructure that your
 application runs on.  IaC allows you to incrementailly add/remove infrastructure as your application changes.
 
@@ -12,7 +14,7 @@ This project contains 3 CloudFormation scripts.  They must be created in order b
 2.) Kubernetes Cluster (EKS)
 3.) Worker Nodes (EC2)
 
-# Prerequisits
+# Prerequisites
 - [AWS Account](https://aws.amazon.com/)
 - [EC2 Key Pair](https://console.aws.amazon.com/ec2/v2/home)
 - [cim.sh](https://cim.sh/) - `npm install -g cim`
@@ -146,7 +148,7 @@ Download, edit, and apply the AWS authenticator configuration map:
 curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/aws-auth-cm.yaml
 ```
 
-2.) Open the file with your favorite text editor. Replace the <ARN of instance role (not instance profile)> snippet with the NodeInstanceRole value that you recorded in the previous procedure, and save the file.
+2.) Open the file with your favorite text editor. Replace the <ARN of instance role (not instance profile)> snippet with the `NodeInstanceRole` value that you recorded in the previous procedure, and save the file.
 
 This will be the `NodeInstanceRole` output from the nodes stack.
 
